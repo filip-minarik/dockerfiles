@@ -1,4 +1,4 @@
-FROM php:7.3-apache
+FROM php:7.4-apache
 
 RUN apt-get update && apt-get install -y nano dialog ssl-cert apt-utils mc \
     && a2enmod ssl \
@@ -21,9 +21,9 @@ RUN mkdir -p /usr/share/man/man1 \
         libpng-dev cron \
         unzip \
     && docker-php-ext-configure zip --with-libzip \
-    && docker-php-ext-configure intl \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     && docker-php-ext-configure mysqli --with-mysqli=mysqlnd \
+    && docker-php-ext-configure intl
     && docker-php-ext-install pdo_mysql mysqli intl mbstring zip pcntl gd bcmath \
     && locale-gen en_US en_US.UTF-8 sk_SK sk_SK.UTF-8 \
     && apt-get autoremove -y \
