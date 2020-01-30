@@ -11,6 +11,7 @@ RUN mkdir -p /usr/share/man/man1 \
     && apt-get install -y --no-install-recommends default-jre libreoffice \
     && apt-get install -y \
         libicu-dev \
+        libonig-dev \
         libcurl4-openssl-dev \
         curl \
         git \
@@ -20,7 +21,7 @@ RUN mkdir -p /usr/share/man/man1 \
         locales \
         libpng-dev cron \
         unzip \
-    && docker-php-ext-configure zip --with-libzip \
+    && docker-php-ext-configure zip \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     && docker-php-ext-configure mysqli --with-mysqli=mysqlnd \
     && docker-php-ext-configure intl \
