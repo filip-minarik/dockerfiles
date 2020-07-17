@@ -3,7 +3,7 @@
 # Fix domain name resolution from jails
 cp /etc/resolv.conf /etc/hosts /opt/lool/systemplate/etc/
 if test "${sslKey-set}" ==set && test "${sslCert-set}" == set && test "${sslCaChain-set}" == set; then
-  #use certificate from $sslKey
+  # Use certificate from variables in env-file
   echo "${sslKey}" > /etc/loolwsd/key.pem
   echo "${sslCert}" > /etc/loolwsd/cert.pem
   echo "${sslCaChain}" > /etc/loolwsd/ca-chain.cert.pem
