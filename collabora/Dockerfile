@@ -3,11 +3,9 @@ FROM ubuntu:18.04
 # Environment variables
 ENV domain localhost
 ENV LC_CTYPE C.UTF-8
-
 # Setup scripts for LibreOffice Online
-ADD install-office.sh /
-ADD start-office.sh /
-RUN bash install-office.sh
+ADD ["install-office.sh","start-office.sh", "/usr/local/bin/"]
+RUN bash /usr/local/bin/install-office.sh
 
 EXPOSE 9980
 
@@ -15,4 +13,4 @@ EXPOSE 9980
 USER 101
 
 # Entry point
-CMD bash start-office.sh
+CMD bash /usr/local/bin/start-office.sh
