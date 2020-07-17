@@ -5,9 +5,9 @@ ENV domain localhost
 ENV LC_CTYPE C.UTF-8
 
 # Setup scripts for LibreOffice Online
-ADD ./scripts/install-libreoffice.sh /
-ADD ./scripts/start-libreoffice.sh /
-RUN bash install-libreoffice.sh
+ADD ./scripts/install-office.sh /
+ADD ./scripts/start-office.sh /
+RUN bash install-office.sh
 
 EXPOSE 9980
 
@@ -15,4 +15,4 @@ EXPOSE 9980
 USER 101
 
 # Entry point
-CMD bash start-libreoffice.sh
+CMD bash start-office.sh
