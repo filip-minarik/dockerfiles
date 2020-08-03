@@ -4,8 +4,8 @@ FROM ubuntu:18.04
 ENV domain localhost
 ENV LC_CTYPE C.UTF-8
 # Setup scripts for LibreOffice Online
-ADD ["./install-office.sh","./start-office.sh", "/usr/local/bin/"]
-RUN bash /usr/local/bin/install-office.sh
+ADD ["./install_office.sh","./start_office.sh", "/usr/local/bin/"]
+RUN bash /usr/local/bin/install_office.sh
 
 EXPOSE 9980
 
