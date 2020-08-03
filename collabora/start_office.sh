@@ -10,7 +10,7 @@ if test "${sslKey-set}" ==set && test "${sslCert-set}" == set && test "${sslCaCh
 elif test "${DONT_GEN_SSL_CERT-set}" == set; then
   # Generate new SSL certificate instead of using the default
   mkdir -p /opt/ssl/
-  cd /opt/ssl/
+  cd /opt/ssl/ || exit
   mkdir -p certs/ca
   openssl rand -writerand /opt/lool/.rnd
   openssl genrsa -out certs/ca/root.key.pem 2048
